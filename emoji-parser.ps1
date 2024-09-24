@@ -1,6 +1,6 @@
 # downloads emoji specification from unicode.org and converts it to be used in the plugin
 
-$EmojiList = $PSScriptRoot + "\src\main\resources\jenkins\plugins\foldericon\EmojiFolderIcon\emojis.list"
+$EmojiList = $PSScriptRoot + "\src\main\resources\io\jenkins\plugins\emoji\symbols\Emojis\emojis.list"
 $EmojiUrl = "https://unicode.org/Public/emoji/16.0/emoji-test.txt"
 
 function SearchAndReplace {

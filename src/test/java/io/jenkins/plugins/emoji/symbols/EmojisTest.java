@@ -1,6 +1,8 @@
-package jenkins.plugins.foldericon;
+package io.jenkins.plugins.emoji.symbols;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 import java.lang.reflect.Constructor;
@@ -28,7 +30,7 @@ class EmojisTest {
     @Test
     @Order(0)
     void testSVG() throws Exception {
-        File emojiList = new File("./src/main/resources/jenkins/plugins/foldericon/EmojiFolderIcon/emojis.list");
+        File emojiList = new File("./src/main/resources/io/jenkins/plugins/emoji/symbols/Emojis/emojis.list");
         File svgFolder = new File("./src/main/resources/images/symbols");
 
         String[] folderContents = svgFolder.list();
@@ -73,8 +75,8 @@ class EmojisTest {
     @Test
     @Order(1)
     void testMissingResource() throws Exception {
-        File emojiList = new File("./target/classes/jenkins/plugins/foldericon/EmojiFolderIcon/emojis.list");
-        File backup = new File("./target/classes/jenkins/plugins/foldericon/EmojiFolderIcon/emojis.list.backup");
+        File emojiList = new File("./target/classes/io/jenkins/plugins/emoji/symbols/Emojis/emojis.list");
+        File backup = new File("./target/classes/io/jenkins/plugins/emoji/symbols/Emojis/emojis.list.backup");
 
         try {
             assertTrue(emojiList.renameTo(backup));
@@ -93,8 +95,8 @@ class EmojisTest {
     @Test
     @Order(2)
     void testInvalidResource() throws Exception {
-        File emojiList = new File("./target/classes/jenkins/plugins/foldericon/EmojiFolderIcon/emojis.list");
-        File backup = new File("./target/classes/jenkins/plugins/foldericon/EmojiFolderIcon/emojis.list.backup");
+        File emojiList = new File("./target/classes/io/jenkins/plugins/emoji/symbols/Emojis/emojis.list");
+        File backup = new File("./target/classes/io/jenkins/plugins/emoji/symbols/Emojis/emojis.list.backup");
 
         try {
             assertTrue(emojiList.renameTo(backup));

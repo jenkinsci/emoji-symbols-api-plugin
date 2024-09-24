@@ -6,7 +6,7 @@
     ":semanticCommitsDisabled"
   ],
   "reviewers": [
-    "team:custom-folder-icon-plugin-developers"
+    "team:emoji-symbols-api-plugin-developers"
   ],
   "labels": [
     "dependencies"

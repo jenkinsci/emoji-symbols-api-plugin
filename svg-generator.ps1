@@ -1,7 +1,7 @@
 # uses the emojis.list and converts it to svgs
 
 $SymbolsPath = $PSScriptRoot + "\src\main\resources\images\symbols\"
-$EmojiList = $PSScriptRoot + "\src\main\resources\jenkins\plugins\foldericon\EmojiFolderIcon\emojis.list"
+$EmojiList = $PSScriptRoot + "\src\main\resources\io\jenkins\plugins\emoji\symbols\Emojis\emojis.list"
 $SVG = ".svg"
 $EmojiPrefix = "emoji_"
 $Placeholder = "PLACEHOLDER"

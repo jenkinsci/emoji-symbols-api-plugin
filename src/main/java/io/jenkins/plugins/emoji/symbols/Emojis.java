@@ -1,4 +1,4 @@
-package jenkins.plugins.foldericon;
+package io.jenkins.plugins.emoji.symbols;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -10,13 +10,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Utility to work with emojis provided by the custom-folder-icon-plugin.
+ * Utility to work with emojis provided by the emoji-symbols-api-plugin.
  */
 public final class Emojis {
 
     private static final Logger LOGGER = Logger.getLogger(Emojis.class.getName());
-    private static final String EMOJIS_LIST_RESOURCE_PATH = "jenkins/plugins/foldericon/EmojiFolderIcon/emojis.list";
-    private static final String PLUGIN_NAME = "custom-folder-icon";
+    private static final String EMOJIS_LIST_RESOURCE_PATH = "io/jenkins/plugins/emoji/symbols/Emojis/emojis.list";
+    private static final String PLUGIN_NAME = "emoji-symbols-api";
     private static final String EMOJI_PREFIX = "emoji_";
     private static final String ICON_CLASS_NAME_PATTERN = "symbol-" + EMOJI_PREFIX + "%s plugin-" + PLUGIN_NAME;
     private static final Emojis INSTANCE = new Emojis();
@@ -57,7 +57,7 @@ public final class Emojis {
     }
 
     /**
-     * Get all available icons provided by the custom-folder-icon-plugin.
+     * Get all available icons provided by the emoji-symbols-api-plugin.
      *
      * @return a sorted map of available emojis with emoji name as key and the icon class name as value.
      */
@@ -66,7 +66,7 @@ public final class Emojis {
     }
 
     /**
-     * Get all available emojis provided by the custom-folder-icon-plugin.
+     * Get all available emojis provided by the emoji-symbols-api-plugin.
      *
      * @return a sorted map of available emojis with emoji name as key and the actual Unicode emoji as value.
      */

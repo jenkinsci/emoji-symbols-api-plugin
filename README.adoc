@@ -22,33 +22,90 @@ The symbol names follow the pattern of `symbol-emoji_NAME plugin-emoji-symbols-a
 
 Helper methods such as `io.jenkins.plugins.emoji.symbols.Emojis.getIconClassName` are provided by the plugin for easier generation of symbol identifiers.
 
+For a list of all available Emojis and their names click link:src/main/resources/io/jenkins/plugins/emoji/symbols/Emojis/emojis.list[here].
+
 === Jelly
+
+Simply define the icon by using
 
 [source,xml]
 ----
 <l:icon src="symbol-emoji_sloth plugin-emoji-symbols-api" />
 ----
 
+or use the helper methods to generate the icon class name for you
+
+[source,xml]
+----
+<j:invokeStatic var="emoji" method="getIconClassName" className="io.jenkins.plugins.emoji.symbols.Emojis">
+    <j:arg value="sloth"/>
+</j:invokeStatic>
+
+<l:icon src="${emoji}" />
+----
+
 === Groovy
+
+Simply define the icon by using
+
 [source,groovy]
 ----
 l.icon(src: "symbol-emoji_sloth plugin-emoji-symbols-api")
 ----
 
+or use the helper methods to generate the icon class name for you
+
+[source,groovy]
+----
+import io.jenkins.plugins.emoji.symbols.Emojis
+
+def emoji = Emojis.getIconClassName("sloth")
+l.icon(src: emoji)
+----
+
 === Java
+
+Simply define the icon by using
+
 [source,java]
 ----
-@Override
 public String getIconClassName() {
     return "symbol-emoji_sloth plugin-emoji-symbols-api";
 }
 ----
 
-=== Plugins:
+or use the helper methods to generate the icon class name for you
+
+[source,java]
+----
+import io.jenkins.plugins.emoji.symbols.Emojis;
+
+public String getIconClassName() {
+    return Emojis.getIconClassName("sloth");
+}
+----
+
+=== Plugins
+
+Simply define the icon by using
+
 [source,groovy]
 ----
-// usage in the badge-plugin
 node {
+    // usage in the badge-plugin
     addBadge(icon: "symbol-emoji_sloth plugin-emoji-symbols-api")
+}
+----
+
+or use the helper methods to generate the icon class name for you
+
+[source,groovy]
+----
+import io.jenkins.plugins.emoji.symbols.Emojis
+
+node {
+    // usage in the badge-plugin
+    def emoji = Emojis.getIconClassName("sloth")
+    addBadge(icon: emoji)
 }
 ----

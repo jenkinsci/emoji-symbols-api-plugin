@@ -1,5 +1,8 @@
 [[emoji-symbols-api-plugin]]
 = Emoji Symbols API Plugin
+:toc: macro
+:toclevels: 3
+:toc-title:
 
 image:https://ci.jenkins.io/job/Plugins/job/emoji-symbols-api-plugin/job/main/badge/icon[link="https://ci.jenkins.io/job/Plugins/job/emoji-symbols-api-plugin/job/main/"]
 image:https://codecov.io/gh/jenkinsci/emoji-symbols-api-plugin/branch/main/graph/badge.svg[link="https://codecov.io/gh/jenkinsci/emoji-symbols-api-plugin"]
@@ -16,9 +19,11 @@ This plugin provides https://unicode.org/emoji/charts/full-emoji-list.html[Unico
 The SVG files bundled by the plugin render the Emojis as `text` rather than `path`.
 This allows emojis to be interpreted by the browser being used.
 
+toc::[]
+
 == Usage
 
-The symbol names follow the pattern of `symbol-emoji_NAME plugin-emoji-symbols-api`.
+The symbol names follow the pattern of `symbol-emoji___NAME__ plugin-emoji-symbols-api`.
 
 Helper methods such as `io.jenkins.plugins.emoji.symbols.Emojis.getIconClassName` are provided by the plugin for easier generation of symbol identifiers.
 

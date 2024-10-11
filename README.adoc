@@ -27,7 +27,7 @@ The symbol names follow the pattern of `symbol-emoji___NAME__ plugin-emoji-symbo
 
 Helper methods such as `io.jenkins.plugins.emoji.symbols.Emojis.getIconClassName` are provided by the plugin for easier generation of symbol identifiers.
 
-For a list of all available Emojis and their names click link:src/main/resources/io/jenkins/plugins/emoji/symbols/Emojis/emojis.list[here].
+For a list of all available emojis and their names click link:src/main/resources/io/jenkins/plugins/emoji/symbols/Emojis/emojis.list[here].
 
 === Jelly
 

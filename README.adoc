@@ -8,6 +8,7 @@ image:https://ci.jenkins.io/job/Plugins/job/emoji-symbols-api-plugin/job/main/ba
 image:https://codecov.io/gh/jenkinsci/emoji-symbols-api-plugin/branch/main/graph/badge.svg[link="https://codecov.io/gh/jenkinsci/emoji-symbols-api-plugin"]
 image:https://github.com/jenkinsci/emoji-symbols-api-plugin/actions/workflows/jenkins-security-scan.yml/badge.svg[link="https://github.com/jenkinsci/emoji-symbols-api-plugin/actions/workflows/jenkins-security-scan.yml"]
 
+image:https://img.shields.io/github/directory-file-count/jenkinsci/emoji-symbols-api-plugin%2Fsrc%2Fmain%2Fresources%2Fimages%2Fsymbols?type=file&style=flat&label=emojis[GitHub repo file or directory count]
 image:https://img.shields.io/jenkins/plugin/i/emoji-symbols-api.svg?color=blue&label=installations[link="https://stats.jenkins.io/pluginversions/emoji-symbols-api.html"]
 image:https://img.shields.io/github/contributors/jenkinsci/emoji-symbols-api-plugin.svg?color=blue[link="https://github.com/jenkinsci/emoji-symbols-api-plugin/graphs/contributors"]
 image:https://img.shields.io/github/release/jenkinsci/emoji-symbols-api-plugin.svg?label=changelog[link="https://github.com/jenkinsci/emoji-symbols-api-plugin/releases/latest"]

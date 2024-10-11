@@ -16,7 +16,7 @@ image:https://img.shields.io/github/release/jenkinsci/emoji-symbols-api-plugin.s
 
 This plugin provides https://unicode.org/emoji/charts/full-emoji-list.html[Unicode emojis] as symbols to be used by other plugins.
 
-The SVG files bundled by the plugin render the Emojis as `text` rather than `path`.
+The SVG files bundled by the plugin render the emojis as `text` rather than `path`.
 This allows emojis to be interpreted by the browser being used.
 
 toc::[]

@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>4.88</version>
+    <version>5.2</version>
     <relativePath />
   </parent>
 
@@ -15,7 +15,9 @@
   <packaging>hpi</packaging>
 
   <name>Emoji Symbols API Plugin</name>
-  <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
+  <description>Bundles Unicode emojis as symbols to be used by other plugins.</description>
+  <url>https://github.com/${gitHubRepo}</url>
+
   <licenses>
     <license>
       <name>MIT License</name>
@@ -40,9 +42,10 @@
 
   <properties>
     <changelist>999999-SNAPSHOT</changelist>
-    <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
-    <jenkins.version>2.440.3</jenkins.version>
     <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
+    <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
+    <jenkins.baseline>2.479</jenkins.baseline>
+    <jenkins.version>${jenkins.baseline}.1</jenkins.version>
     <spotless.check.skip>false</spotless.check.skip>
   </properties>
 
@@ -52,6 +55,7 @@
       <url>https://repo.jenkins-ci.org/public/</url>
     </repository>
   </repositories>
+
   <pluginRepositories>
     <pluginRepository>
       <id>repo.jenkins-ci.org</id>

@@ -1,4 +1,4 @@
 <?jelly escape-by-default='true'?>
 <div>
-    This plugin provides <a href="https://unicode.org/emoji/charts/full-emoji-list.html">Unicode emojis</a> as symbols to be used by other plugins.
+    This plugin provides <a href="https://unicode.org/emoji/charts/full-emoji-list.html">Unicode Emojis</a> v${revision} as symbols to be used by other plugins.
 </div>

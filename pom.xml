@@ -11,11 +11,11 @@
 
   <groupId>io.jenkins.plugins</groupId>
   <artifactId>emoji-symbols-api</artifactId>
-  <version>${changelist}</version>
+  <version>${revision}-${changelist}</version>
   <packaging>hpi</packaging>
 
   <name>Emoji Symbols API Plugin</name>
-  <description>Bundles Unicode emojis as symbols to be used by other plugins.</description>
+  <description>Bundles Unicode Emojis as symbols to be used by other plugins.</description>
   <url>https://github.com/${gitHubRepo}</url>
 
   <licenses>
@@ -41,6 +41,7 @@
   </scm>
 
   <properties>
+    <revision>16.0</revision>
     <changelist>999999-SNAPSHOT</changelist>
     <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
     <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
@@ -62,4 +63,13 @@
       <url>https://repo.jenkins-ci.org/public/</url>
     </pluginRepository>
   </pluginRepositories>
+
+  <build>
+    <resources>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
+  </build>
 </project>

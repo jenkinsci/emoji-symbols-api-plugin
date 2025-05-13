@@ -32,7 +32,7 @@ For a list of all available emojis and their names click link:src/main/resources
 
 === Jelly
 
-Simply define the icon by using
+Define the icon by using
 
 [source,xml]
 ----
@@ -52,7 +52,7 @@ or use the helper methods to generate the icon class name for you
 
 === Groovy
 
-Simply define the icon by using
+Define the icon by using
 
 [source,groovy]
 ----
@@ -71,7 +71,7 @@ l.icon(src: emoji)
 
 === Java
 
-Simply define the icon by using
+Define the icon by using
 
 [source,java]
 ----
@@ -93,7 +93,7 @@ public String getIconClassName() {
 
 === Plugins
 
-Simply define the icon by using
+Define the icon by using
 
 [source,groovy]
 ----

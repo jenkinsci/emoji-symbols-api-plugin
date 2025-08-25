@@ -41,7 +41,7 @@
   </scm>
 
   <properties>
-    <revision>16.0</revision>
+    <revision>17.0</revision>
     <changelist>999999-SNAPSHOT</changelist>
     <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
     <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->

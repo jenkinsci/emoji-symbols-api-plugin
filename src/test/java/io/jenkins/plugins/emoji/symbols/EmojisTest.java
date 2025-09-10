@@ -1,8 +1,15 @@
 package io.jenkins.plugins.emoji.symbols;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.anEmptyMap;
+import static org.hamcrest.Matchers.arrayWithSize;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.emptyArray;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.matchesPattern;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.notNullValue;
 
 import java.io.File;
 import java.lang.reflect.Constructor;
@@ -34,36 +41,37 @@ class EmojisTest {
         File svgFolder = new File("./src/main/resources/images/symbols");
 
         String[] folderContents = svgFolder.list();
-        assertNotNull(folderContents);
-        assertEquals(folderContents.length, Emojis.getAvailableIcons().size());
-        assertEquals(folderContents.length, Emojis.getAvailableEmojis().size());
+        assertThat(folderContents, notNullValue());
+        assertThat(folderContents, not(emptyArray()));
+        assertThat(folderContents, arrayWithSize(Emojis.getAvailableIcons().size()));
+        assertThat(folderContents, arrayWithSize(Emojis.getAvailableEmojis().size()));
 
         List<String> entries = Files.readAllLines(emojiList.toPath(), StandardCharsets.UTF_8);
-        assertEquals(folderContents.length, entries.size());
+        assertThat(entries, hasSize(folderContents.length));
 
         for (String svg : folderContents) {
             String emoji = Emojis.getAvailableIcons()
                     .get(svg.replaceFirst("emoji_", "").replaceFirst(".svg", ""));
-            assertNotNull(emoji);
+            assertThat(emoji, notNullValue());
         }
 
         for (String entry : entries) {
             String[] content = entry.split(":");
-            assertEquals(2, content.length);
+            assertThat(content, arrayWithSize(2));
 
-            assertTrue(content[0].matches("^[a-z0-9_]+$"));
+            assertThat(content[0], matchesPattern("^[a-z0-9_]+$"));
 
             String iconClassName = Emojis.getAvailableIcons().get(content[0]);
-            assertNotNull(iconClassName);
-            assertEquals(iconClassName, Emojis.getIconClassName(content[0]));
+            assertThat(iconClassName, notNullValue());
+            assertThat(iconClassName, is(Emojis.getIconClassName(content[0])));
 
             String emoji = Emojis.getAvailableEmojis().get(content[0]);
-            assertNotNull(emoji);
-            assertEquals(emoji, content[1]);
+            assertThat(emoji, notNullValue());
+            assertThat(emoji, is(content[1]));
 
             String svg = Files.readString(
                     new File(svgFolder, "emoji_" + content[0] + ".svg").toPath(), StandardCharsets.UTF_8);
-            assertTrue(svg.contains(content[1]));
+            assertThat(svg, containsString(content[1]));
         }
     }
 
@@ -79,11 +87,11 @@ class EmojisTest {
         File backup = new File("./target/classes/io/jenkins/plugins/emoji/symbols/Emojis/emojis.list.backup");
 
         try {
-            assertTrue(emojiList.renameTo(backup));
+            assertThat(emojiList.renameTo(backup), is(true));
 
             validateEmojisInstance();
         } finally {
-            assertTrue(backup.renameTo(emojiList));
+            assertThat(backup.renameTo(emojiList), is(true));
         }
     }
 
@@ -99,14 +107,14 @@ class EmojisTest {
         File backup = new File("./target/classes/io/jenkins/plugins/emoji/symbols/Emojis/emojis.list.backup");
 
         try {
-            assertTrue(emojiList.renameTo(backup));
-            assertTrue(emojiList.createNewFile());
+            assertThat(emojiList.renameTo(backup), is(true));
+            assertThat(emojiList.createNewFile(), is(true));
             Files.writeString(emojiList.toPath(), "invalid", StandardCharsets.UTF_8);
 
             validateEmojisInstance();
         } finally {
-            assertTrue(emojiList.delete());
-            assertTrue(backup.renameTo(emojiList));
+            assertThat(emojiList.delete(), is(true));
+            assertThat(backup.renameTo(emojiList), is(true));
         }
     }
 
@@ -120,15 +128,15 @@ class EmojisTest {
         @SuppressWarnings("unchecked")
         Map<String, String> availableIcons = (Map<String, String>) availableIconsField.get(emojis);
 
-        assertNotNull(availableIcons);
-        assertTrue(availableIcons.isEmpty());
+        assertThat(availableIcons, notNullValue());
+        assertThat(availableIcons, anEmptyMap());
 
         Field availableEmojisField = emojis.getClass().getDeclaredField("availableEmojis");
         availableEmojisField.setAccessible(true);
         @SuppressWarnings("unchecked")
         Map<String, String> availableEmojis = (Map<String, String>) availableEmojisField.get(emojis);
 
-        assertNotNull(availableEmojis);
-        assertTrue(availableEmojis.isEmpty());
+        assertThat(availableEmojis, notNullValue());
+        assertThat(availableEmojis, anEmptyMap());
     }
 }

@@ -24,6 +24,9 @@ $SVGTemplate = "<svg xmlns=`"http://www.w3.org/2000/svg`" class=`"emoji`" viewBo
 $counter = 0
 
 $runtime = Measure-Command {
+    # delete old svgs
+    Get-ChildItem $SymbolsPath | Remove-Item -recurse -Force
+
     foreach ($line in Get-Content -Encoding UTF8NoBOM $EmojiList)
     {
         $splitLine = $line.Split(":")
